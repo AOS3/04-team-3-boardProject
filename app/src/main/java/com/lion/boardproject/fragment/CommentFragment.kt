@@ -3,40 +3,32 @@ package com.lion.boardproject.fragment
 import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.util.copy
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.divider.MaterialDividerItemDecoration
-import com.google.protobuf.Value
 import com.lion.boardproject.BoardActivity
 import com.lion.boardproject.R
 import com.lion.boardproject.databinding.FragmentCommentBinding
 import com.lion.boardproject.databinding.RowCommentBinding
-import com.lion.boardproject.model.BoardModel
 import com.lion.boardproject.model.ReplyModel
 import com.lion.boardproject.service.BoardService
 import com.lion.boardproject.service.CommentService
-import com.lion.boardproject.service.CommentService.deleteComment
 import com.lion.boardproject.util.ReplyState
 import com.lion.boardproject.viewmodel.CommentViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import java.util.UUID
 
 class CommentFragment(val boardMainFragment: BoardMainFragment) : BottomSheetDialogFragment() {
 
