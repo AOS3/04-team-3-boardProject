@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="commentViewModel"
+            type="com.lion.boardproject.viewmodel.CommentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textViewCommentUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commentViewModel.textViewCommentUser}" />
+
+        <TextView
+            android:id="@+id/textViewCommentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commentViewModel.textViewCommentText}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </LinearLayout>
+</layout>

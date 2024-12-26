@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.lion.boardproject.viewmodel.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarUserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:title="@{loginViewModel.toolbarUserLoginTitle}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserLoginId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="아이디"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/person_24px">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/digit_value"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={loginViewModel.textFieldUserLoginIdEditTextText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserLoginPw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="비밀번호"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/key_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/digit_value"
+                        android:singleLine="true"
+                        android:inputType="text|textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={loginViewModel.textFieldUserLoginPwEditTextText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkBoxUserLoginAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="자동 로그인"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:checked="@={loginViewModel.checkBoxUserLoginAutoChecked}"/>
+
+                <Button
+                    android:id="@+id/buttonUserLoginSubmit"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="로그인"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="@{(view) -> loginViewModel.buttonUserLoginSubmitOnClick()}"/>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+                <Button
+                    android:id="@+id/buttonUserLoginJoin"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="회원 가입"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="@{(view) -> loginViewModel.buttonUserLoginJoinOnClick()}"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

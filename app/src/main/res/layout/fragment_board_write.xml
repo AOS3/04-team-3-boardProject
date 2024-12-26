@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="boardWriteViewModel"
+            type="com.lion.boardproject.viewmodel.BoardWriteViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true" >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarBoardWrite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:menu="@menu/menu_board_write_toolbar"
+            app:navigationIcon="@drawable/arrow_back_24px"
+            app:title="글 작성"
+            app:onNavigationClickBoardWrite="@{boardWriteViewModel.boardWriteFragment}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldBoardWriteTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="제목"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/subject_24px">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={boardWriteViewModel.textFieldBoardWriteTitleText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldBoardWriteText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="내용"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/description_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={boardWriteViewModel.textFieldBoardWriteTextText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/buttonGroupBoardWriteType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:checkedButton="@id/buttonBoardWriteType1"
+                    app:selectionRequired="true"
+                    app:singleSelection="true"
+                    app:onButtonCheckedChange="@{boardWriteViewModel.boardWriteFragment}">
+
+                    <Button
+                        android:id="@+id/buttonBoardWriteType1"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="자유" />
+
+                    <Button
+                        android:id="@+id/buttonBoardWriteType2"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="유머" />
+
+                    <Button
+                        android:id="@+id/buttonBoardWriteType3"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="시사" />
+
+                    <Button
+                        android:id="@+id/buttonBoardWriteType4"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="운동" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <ImageView
+                    android:id="@+id/imageViewBoardWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/panorama_24px" />
+
+                <Button
+                    android:id="@+id/buttonBoardWriteImageDelete"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="이미지 삭제"
+                    android:onClick="@{() -> boardWriteViewModel.buttonBoardWriteImageDeleteOnClick()}"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

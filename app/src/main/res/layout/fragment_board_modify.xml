@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="boardModifyViewModel"
+            type="com.lion.boardproject.viewmodel.BoardModifyViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true" >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarBoardModify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:menu="@menu/menu_board_modify_toolbar"
+            app:navigationIcon="@drawable/arrow_back_24px"
+            app:title="글 수정"
+            app:onNavigationClickBoardModify="@{boardModifyViewModel.boardModifyFragment}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldBoardModifyTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="제목"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/subject_24px">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={boardModifyViewModel.textFieldBoardModifyTitleText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldBoardModifyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="내용"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/description_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={boardModifyViewModel.textFieldBoardModifyTextText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/buttonGroupBoardModifyType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:checkedButton="@id/buttonBoardModifyType1"
+                    app:selectionRequired="true"
+                    app:singleSelection="true"
+                    app:onButtonCheckedChangeModify="@{boardModifyViewModel.boardModifyFragment}">
+
+                    <Button
+                        android:id="@+id/buttonBoardModifyType1"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="자유" />
+
+                    <Button
+                        android:id="@+id/buttonBoardModifyType2"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="유머" />
+
+                    <Button
+                        android:id="@+id/buttonBoardModifyType3"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="시사" />
+
+                    <Button
+                        android:id="@+id/buttonBoardModifyType4"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="운동" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <ImageView
+                    android:id="@+id/imageViewBoardModify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/panorama_24px" />
+
+                <Button
+                    android:id="@+id/buttonBoardModifyRemoveImage"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="이미지삭제"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="@{() -> boardModifyViewModel.buttonBoardModifyRemoveImageOnClick()}"/>
+
+                <Button
+                    android:id="@+id/buttonBoardModifyResetImage"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="이미지 초기화"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="@{() -> boardModifyViewModel.buttonBoardModifyResetImageOnClick()}"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

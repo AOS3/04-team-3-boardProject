@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BoardProject" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.BoardProject" parent="Base.Theme.BoardProject" />
+
+    <!-- Splash Screen용 테마 -->
+    <style name="AppTheme.Splash" parent="Theme.SplashScreen">
+        <!-- 배경 색상 또는 이미지 -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <!-- 중앙에 표시될 아이콘 이미지 -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/like_lion_logo</item>
+        <!-- Splash Screen이 보여질 시간 -->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <!-- windowSplashScreenAnimationDuration 에서 지정한 시간이 끝나면 적용할 테마 -->
+        <!-- AndroidManifest.xml 에 적용되어 있는 테마를 적용해준다 -->
+        <item name="postSplashScreenTheme">@style/Theme.BoardProject</item>
+    </style>
+</resources>

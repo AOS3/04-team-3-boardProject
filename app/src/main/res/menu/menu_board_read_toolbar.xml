@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuItemBoardReadModify"
+        android:icon="@drawable/edit_24px"
+        android:title="수정하기"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menuItemBoardReadDelete"
+        android:icon="@drawable/delete_24px"
+        android:title="삭제하기"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menuItemBoardReadComment"
+        android:icon="@drawable/tooltip_24px"
+        android:title="댓글"
+        app:showAsAction="always" />
+</menu>

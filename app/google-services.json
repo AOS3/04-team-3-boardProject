@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "223208379918",
+    "project_id": "likelion-64933",
+    "storage_bucket": "likelion-64933.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223208379918:android:a0d0c522345ee2f2794e5f",
+        "android_client_info": {
+          "package_name": "com.lion.boardproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfmDpyWh3zRvuNRSoCH_fOaYTYHyRfg8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

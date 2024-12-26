@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="카메라"
+        android:id="@+id/menuItemBoardModifyCamera"
+        android:icon="@drawable/photo_camera_24px"
+        app:showAsAction="always"/>
+
+    <item android:title="앨범"
+        android:id="@+id/menuItemBoardModifyAlbum"
+        android:icon="@drawable/photo_album_24px"
+        app:showAsAction="always"/>
+
+    <item android:title="초기화"
+        android:id="@+id/menuItemBoardModifyReset"
+        android:icon="@drawable/restart_alt_24px"
+        app:showAsAction="always"/>
+
+    <item android:title="완료"
+        android:id="@+id/menuItemBoardModifyDone"
+        android:icon="@drawable/done_24px"
+        app:showAsAction="always"/>
+</menu>

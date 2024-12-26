@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="userModifyViewModel"
+            type="com.lion.boardproject.viewmodel.UserModifyViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true" >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarUserModify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:menu="@menu/menu_user_modify_toolbar"
+            app:navigationIcon="@drawable/menu_24px"
+            app:title="회원 정보 수정"
+            app:onNavigationClickUserModify="@{userModifyViewModel.userModifyFragment}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserModifyPw1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="비밀번호"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/key_24px">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/digit_value"
+                        android:singleLine="true"
+                        android:inputType="text|textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={userModifyViewModel.textFieldUserModifyPw1Text}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserModifyPw2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="비밀번호 확인"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/key_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/digit_value"
+                        android:singleLine="true"
+                        android:inputType="text|textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={userModifyViewModel.textFieldUserModifyPw2Text}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:dividerColor="@color/black"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserModifyNickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="닉네임"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/person_add_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={userModifyViewModel.textFieldUserModifyNickNameText}"
+                        android:onTextChanged="@{() -> userModifyViewModel.buttonUserModifyCheckNickNameOnTextChanged()}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/buttonUserModifyCheckNickName"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="닉네임 중복 확인"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:onClick="@{() -> userModifyViewModel.buttonUserModifyCheckNickNameOnClick()}"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldUserModifyAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="나이"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/face_24px"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number|numberDecimal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="@={userModifyViewModel.textFieldUserModifyAgeText}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:dividerColor="@color/black"/>
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/checkBoxUserModifyHobbyAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="취미"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:checkedState="@{userModifyViewModel.checkBoxUserModifyHobbyAllCheckedState}"
+                    android:checked="@={userModifyViewModel.checkBoxUserModifyHobbyAllChecked}"
+                    android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyAllOnClick()}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="게임"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby1Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="독서"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby2Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="요리"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby3Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="낚시"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby4Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="영화감상"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby5Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+
+                        <CheckBox
+                            android:id="@+id/checkBoxUserModifyHobby6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="기타"
+                            android:checked="@={userModifyViewModel.checkBoxUserModifyHobby6Checked}"
+                            android:onClick="@{(view) -> userModifyViewModel.checkBoxUserModifyHobbyOnClick()}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
+

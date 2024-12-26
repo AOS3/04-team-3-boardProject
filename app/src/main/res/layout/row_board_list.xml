@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="rowBoardListViewModel"
+            type="com.lion.boardproject.viewmodel.RowBoardListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:transitionGroup="true">
+
+        <TextView
+            android:id="@+id/textViewRowBoardListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{rowBoardListViewModel.textViewRowBoardListTitleText}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textViewRowBoardListNickName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{rowBoardListViewModel.textViewRowBoardListNickNameText}" />
+    </LinearLayout>
+</layout>
+

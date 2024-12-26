@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="boardListViewModel"
+            type="com.lion.boardproject.viewmodel.BoardListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true" >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarBoardList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/menu_24px"
+            app:title="@{boardListViewModel.toolbarBoardListTitle}"
+            app:onNavigationClickBoardList="@{boardListViewModel.boardListFragment}"/>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/searchBarBoardList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="검색어를 입력해주세요"
+                app:menu="@menu/menu_board_list_searchbar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewBoardListMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp" />
+
+            <com.google.android.material.search.SearchView
+                android:id="@+id/searchViewBoardList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="검색어를 입력해주세요"
+                app:layout_anchor="@id/searchBarBoardList">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewBoardListResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.search.SearchView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+</layout>
