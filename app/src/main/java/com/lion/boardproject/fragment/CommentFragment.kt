@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class CommentFragment(val boardMainFragment: BoardMainFragment) : BottomSheetDialogFragment() {
-
+//
     lateinit var fragmentCommentBinding: FragmentCommentBinding
     lateinit var boardActivity: BoardActivity
 
